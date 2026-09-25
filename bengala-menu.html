@@ -96,6 +96,118 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;}
 [data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
 [data-reveal].in{opacity:1;transform:translateY(0);}
 @media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none;}.whatsapp-float{animation:none;}}
+
+/* ===== React Bits (ports en JS/CSS simple) ===== */
+.btn-light{background:#fff;color:var(--cobalt-700);box-shadow:var(--shadow-soft);}
+.btn-light:hover{transform:translateY(-2px);background:var(--cream-card);}
+.btn-outline-light{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5);}
+.btn-outline-light:hover{border-color:#fff;transform:translateY(-2px);}
+.menu-section,.promo-section,.nosotros-section,.contacto-section{padding-top:80px;}
+@media(max-width:640px){.menu-section,.promo-section,.nosotros-section,.contacto-section{padding-top:56px;}}
+
+/* Portada azul */
+.page-hero{position:relative;overflow:hidden;background:var(--cobalt-600);color:#fff;padding:150px 0 84px;}
+.page-hero::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);background-size:22px 22px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%);}
+.aurora{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.aurora span{position:absolute;border-radius:50%;filter:blur(80px);opacity:.6;}
+.aurora span:nth-child(1){width:520px;height:520px;background:var(--cobalt-400);top:-220px;right:-140px;animation:auroraA 14s ease-in-out infinite alternate;}
+.aurora span:nth-child(2){width:440px;height:440px;background:var(--cobalt-800);bottom:-240px;left:-120px;animation:auroraB 17s ease-in-out infinite alternate;}
+@keyframes auroraA{to{transform:translate(-140px,90px) scale(1.15);}}
+@keyframes auroraB{to{transform:translate(160px,-60px) scale(1.1);}}
+.page-hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:end;}
+.page-hero .breadcrumb{color:rgba(255,255,255,.6);}
+.page-hero .breadcrumb a:hover{color:#fff;}
+.page-hero .breadcrumb .current{color:#fff;}
+.page-hero .eyebrow{color:var(--cobalt-100);}
+.page-hero .eyebrow::before,.page-hero .eyebrow::after{color:var(--orange);-webkit-text-fill-color:var(--orange);}
+.page-hero h1{margin-top:16px;font-size:clamp(40px,6vw,76px);color:#fff;max-width:880px;}
+.page-hero p.lead{margin-top:18px;font-size:17px;line-height:1.65;color:rgba(255,255,255,.85);max-width:560px;}
+.ph-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;}
+@media(max-width:760px){.page-hero{padding:118px 0 60px;}.page-hero-inner{grid-template-columns:1fr;}.circ{display:none;}}
+
+/* Split Text */
+.st-word{display:inline-block;white-space:nowrap;}
+.st-char{display:inline-block;opacity:0;transform:translateY(0.6em);animation:stIn .8s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i) * 28ms + 120ms);}
+@keyframes stIn{to{opacity:1;transform:none;}}
+
+/* Shiny Text */
+.shiny{background:linear-gradient(110deg,var(--cobalt-200) 35%,#fff 50%,var(--cobalt-200) 65%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shine 3.2s linear infinite;}
+@keyframes shine{from{background-position:150% 0;}to{background-position:-100% 0;}}
+
+/* Circular Text */
+.circ{position:relative;width:176px;height:176px;flex-shrink:0;cursor:default;}
+.circ>svg{width:100%;height:100%;display:block;fill:#fff;font-family:'Bricolage Grotesque',var(--font);font-weight:800;font-size:14px;letter-spacing:.14em;}
+.circ-core svg{display:block;fill:currentColor;}
+.circ-core{position:absolute;inset:0;margin:auto;width:66px;height:66px;border-radius:50%;background:#fff;color:var(--cobalt-600);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-soft);}
+
+/* Rotating Text */
+.rt-line{margin-top:24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-family:'Bricolage Grotesque',var(--font);font-weight:800;font-size:clamp(20px,2.4vw,28px);letter-spacing:-0.02em;color:#fff;}
+.rt{display:inline-flex;overflow:hidden;background:#fff;color:var(--cobalt-600);border-radius:14px;padding:6px 16px;white-space:nowrap;transition:width .5s cubic-bezier(.3,1.2,.5,1);}
+.rt-inner{display:inline-flex;flex-shrink:0;}
+.rt-c{display:inline-block;animation:rtIn .5s cubic-bezier(.2,.9,.3,1.15) both;animation-delay:calc(var(--i) * 22ms);}
+.rt-out .rt-c{animation:rtOut .3s ease-in both;animation-delay:calc(var(--i) * 12ms);}
+@keyframes rtIn{from{transform:translateY(110%);opacity:0;}}
+@keyframes rtOut{to{transform:translateY(-120%);opacity:0;}}
+
+/* Scroll Velocity */
+.rb-marquee{background:var(--cream);padding:26px 0;overflow:hidden;border-bottom:1px solid var(--cobalt-100);}
+.mq-row{display:flex;white-space:nowrap;will-change:transform;}
+.mq-seq{display:flex;align-items:center;flex-shrink:0;}
+.mq-seq span{font-family:'Bricolage Grotesque',var(--font);font-weight:800;text-transform:uppercase;letter-spacing:-0.02em;font-size:clamp(28px,4.4vw,54px);line-height:1.15;color:var(--cobalt-600);padding:0 22px;}
+.mq-seq i{font-style:normal;color:var(--orange);font-size:clamp(18px,2.4vw,28px);}
+.mq-row.outline .mq-seq span{color:transparent;-webkit-text-stroke:1.5px var(--cobalt-600);}
+
+/* Spotlight Card */
+.spot{position:relative;overflow:hidden;--spot:rgba(23,48,201,.12);}
+.spot::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:radial-gradient(circle 240px at var(--mx,50%) var(--my,50%),var(--spot),transparent 70%);opacity:0;transition:opacity .35s ease;}
+.spot:hover::after{opacity:1;}
+
+/* Glare Hover */
+.glare{position:relative;overflow:hidden;--glare:rgba(23,48,201,.12);}
+.glare::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(-45deg,transparent 60%,var(--glare) 70%,transparent 80%);background-size:250% 250%;background-position:-100% -100%;transition:background-position .8s ease;}
+.glare:hover::before{background-position:100% 100%;}
+
+/* Tilted Card */
+[data-tilt]{transform-style:preserve-3d;will-change:transform;transition:transform .5s cubic-bezier(.2,.8,.2,1);}
+
+/* Star Border */
+.star-border{position:relative;display:flex;border-radius:26px;padding:2px;overflow:hidden;background:var(--cobalt-800);box-shadow:var(--shadow-soft);}
+.sb-top,.sb-bottom{position:absolute;width:300%;height:50%;border-radius:50%;background:radial-gradient(circle,#fff,transparent 10%);z-index:0;}
+.sb-bottom{bottom:-11px;right:-250%;animation:sbBottom 5s linear infinite alternate;}
+.sb-top{top:-10px;left:-250%;animation:sbTop 5s linear infinite alternate;}
+@keyframes sbBottom{0%{transform:translate(0,0);opacity:1;}100%{transform:translate(-100%,0);opacity:0;}}
+@keyframes sbTop{0%{transform:translate(0,0);opacity:1;}100%{transform:translate(100%,0);opacity:0;}}
+.star-border>*:not(span){position:relative;z-index:1;flex:1;}
+
+/* Count Up */
+.ph-stats{display:flex;gap:44px;flex-wrap:wrap;margin-top:40px;}
+.ph-stats b{display:block;font-family:'Bricolage Grotesque',var(--font);font-size:clamp(30px,3.4vw,40px);font-weight:800;color:#fff;letter-spacing:-0.03em;font-variant-numeric:tabular-nums;}
+.ph-stats b em{font-style:normal;color:var(--orange);}
+.ph-lbl{display:block;margin-top:4px;font-size:12.5px;font-weight:700;color:rgba(255,255,255,.72);}
+
+/* Click Spark */
+.spark-canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999;}
+
+/* Animated Content (reentrada de listas) */
+@keyframes rbUp{from{opacity:0;transform:translateY(18px);}}
+
+@media(prefers-reduced-motion:reduce){
+  .st-char,.rt-c{animation:none;opacity:1;transform:none;}
+  .shiny{animation:none;}
+  .aurora span,.sb-top,.sb-bottom{animation:none;}
+  [data-tilt]{transition:none;}
+}
+
+/* Menú */
+.menu-tabs.has-pill{position:relative;width:fit-content;max-width:100%;margin:0 auto 48px;padding:6px;gap:4px;background:#fff;border:1px solid var(--cobalt-100);border-radius:100px;flex-wrap:nowrap;box-shadow:var(--shadow-card);}
+.menu-tabs.has-pill .menu-tab{position:relative;z-index:1;background:transparent;border-color:transparent;}
+.menu-tabs.has-pill .menu-tab:hover{color:var(--cobalt-600);}
+.menu-tabs.has-pill .menu-tab.active{background:transparent;border-color:transparent;color:#fff;}
+.tab-pill{position:absolute;top:0;left:0;z-index:0;border-radius:100px;background:var(--cobalt-600);box-shadow:var(--shadow-soft);transition:transform .5s cubic-bezier(.3,1.25,.5,1),width .5s cubic-bezier(.3,1.25,.5,1);}
+@media(max-width:640px){.menu-tabs.has-pill{margin:0 0 36px;padding:6px;overflow-x:auto;justify-content:flex-start;-webkit-mask-image:none;mask-image:none;}}
+.menu-item .price{align-self:flex-start;background:var(--cobalt-50);border-radius:100px;padding:6px 14px;font-size:16px;}
+.mi-tag{display:inline-block;vertical-align:middle;margin-left:6px;background:var(--orange);color:#fff;font-family:'Plus Jakarta Sans',var(--font);font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:100px;}
+@media(prefers-reduced-motion:reduce){.tab-pill{transition:none;}}
 </style>
 </head>
 <body>
@@ -127,20 +239,30 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;}
   </div>
 </header>
 
+<section class="page-hero">
+  <div class="aurora" aria-hidden="true"><span></span><span></span></div>
+  <div class="wrap page-hero-inner">
+    <div>
+      <nav class="breadcrumb"><a href="index.html">Inicio</a> <span class="sep">/</span> <span class="current">Menú</span></nav>
+      <span class="eyebrow shiny">Nutrición que se disfruta</span>
+      <h1 data-split>Nuestro menú</h1>
+      <p class="lead">Una selección funcional pensada para acompañar tu rutina, desde el desayuno hasta la tarde.</p>
+      <p class="rt-line">Hoy se antoja un <span class="rt" data-words="bowl Bengala|cold brew|matcha latte|toast de aguacate|licuado Bengala|bowl proteico">bowl Bengala</span></p>
+      <div class="ph-actions"><a href="https://wa.me/527444373713" target="_blank" rel="noopener" class="btn btn-light" data-magnet>Ordenar por WhatsApp</a></div>
+    </div>
+    <div class="circ" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><path id="circMenu" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><text><textPath href="#circMenu" textLength="486" lengthAdjust="spacing">BENGALA HEALTHY ✦ COFFEE &amp; HEALTHY BAR ✦ ACAPULCO ✦ </textPath></text></svg><span class="circ-core"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></span></div>
+  </div>
+</section>
+
+<div class="rb-marquee" aria-hidden="true">
+  <div class="mq-row" data-dir="-1"><div class="mq-seq"><span>Bowls</span><i>✦</i><span>Jugos &amp; Licuados</span><i>✦</i><span>Café de especialidad</span><i>✦</i><span>Toast &amp; Avenas</span><i>✦</i></div></div>
+  <div class="mq-row outline" data-dir="1"><div class="mq-seq"><span>Toast &amp; Avenas</span><i>✦</i><span>Café de especialidad</span><i>✦</i><span>Jugos &amp; Licuados</span><i>✦</i><span>Bowls</span><i>✦</i></div></div>
+</div>
 <section class="menu-section">
   <div class="wrap">
-    <nav class="breadcrumb" data-reveal>
-      <a href="index.html">Inicio</a>
-      <span class="sep">/</span>
-      <span class="current">Menú</span>
-    </nav>
-    <div class="section-head center" data-reveal>
-      <span class="eyebrow">Nutrición que se disfruta</span>
-      <h1>Nuestro menú</h1>
-      <p>Una selección funcional pensada para acompañar tu rutina, desde el desayuno hasta la tarde.</p>
-    </div>
 
-    <div class="menu-tabs" data-reveal>
+    <div class="menu-tabs has-pill" data-reveal>
+      <span class="tab-pill" aria-hidden="true"></span>
       <button class="menu-tab active" data-tab="bowls">Bowls</button>
       <button class="menu-tab" data-tab="jugos">Jugos &amp; Licuados</button>
       <button class="menu-tab" data-tab="cafe">Café de especialidad</button>
@@ -149,28 +271,28 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;}
 
     <div data-reveal>
       <div class="menu-cat active" id="bowls">
-        <div class="menu-item"><div><h4>Bowl Bengala</h4><p>Base de açaí, mango, coco tostado y granola casera.</p></div><span class="price">$95</span></div>
-        <div class="menu-item"><div><h4>Bowl Tropical</h4><p>Piña, mango, plátano y frutos rojos con miel de abeja.</p></div><span class="price">$90</span></div>
-        <div class="menu-item"><div><h4>Bowl Green Detox</h4><p>Espinaca, manzana verde, kiwi y semillas de chía.</p></div><span class="price">$95</span></div>
-        <div class="menu-item"><div><h4>Bowl Proteico</h4><p>Yogurt griego, plátano, crema de cacahuate y granola.</p></div><span class="price">$100</span></div>
+        <div class="menu-item spot"><div><h4>Bowl Bengala <span class="mi-tag">Best seller</span></h4><p>Base de açaí, mango, coco tostado y granola casera.</p></div><span class="price">$95</span></div>
+        <div class="menu-item spot"><div><h4>Bowl Tropical</h4><p>Piña, mango, plátano y frutos rojos con miel de abeja.</p></div><span class="price">$90</span></div>
+        <div class="menu-item spot"><div><h4>Bowl Green Detox</h4><p>Espinaca, manzana verde, kiwi y semillas de chía.</p></div><span class="price">$95</span></div>
+        <div class="menu-item spot"><div><h4>Bowl Proteico</h4><p>Yogurt griego, plátano, crema de cacahuate y granola.</p></div><span class="price">$100</span></div>
       </div>
       <div class="menu-cat" id="jugos">
-        <div class="menu-item"><div><h4>Verde Detox</h4><p>Apio, pepino, espinaca, piña y limón.</p></div><span class="price">$65</span></div>
-        <div class="menu-item"><div><h4>Antioxidante</h4><p>Betabel, zanahoria, naranja y jengibre.</p></div><span class="price">$65</span></div>
-        <div class="menu-item"><div><h4>Licuado Bengala</h4><p>Fresa, plátano, avena y leche de almendra.</p></div><span class="price">$70</span></div>
-        <div class="menu-item"><div><h4>Tropical Splash</h4><p>Mango, maracuyá y agua de coco.</p></div><span class="price">$70</span></div>
+        <div class="menu-item spot"><div><h4>Verde Detox</h4><p>Apio, pepino, espinaca, piña y limón.</p></div><span class="price">$65</span></div>
+        <div class="menu-item spot"><div><h4>Antioxidante</h4><p>Betabel, zanahoria, naranja y jengibre.</p></div><span class="price">$65</span></div>
+        <div class="menu-item spot"><div><h4>Licuado Bengala</h4><p>Fresa, plátano, avena y leche de almendra.</p></div><span class="price">$70</span></div>
+        <div class="menu-item spot"><div><h4>Tropical Splash</h4><p>Mango, maracuyá y agua de coco.</p></div><span class="price">$70</span></div>
       </div>
       <div class="menu-cat" id="cafe">
-        <div class="menu-item"><div><h4>Americano</h4><p>Grano de especialidad, extracción suave.</p></div><span class="price">$40</span></div>
-        <div class="menu-item"><div><h4>Latte de temporada</h4><p>Espresso, leche vaporizada y toque de canela.</p></div><span class="price">$55</span></div>
-        <div class="menu-item"><div><h4>Cold Brew</h4><p>Reposo de 18 horas, suave y refrescante.</p></div><span class="price">$55</span></div>
-        <div class="menu-item"><div><h4>Matcha Latte</h4><p>Matcha ceremonial con leche de coco.</p></div><span class="price">$60</span></div>
+        <div class="menu-item spot"><div><h4>Americano</h4><p>Grano de especialidad, extracción suave.</p></div><span class="price">$40</span></div>
+        <div class="menu-item spot"><div><h4>Latte de temporada</h4><p>Espresso, leche vaporizada y toque de canela.</p></div><span class="price">$55</span></div>
+        <div class="menu-item spot"><div><h4>Cold Brew</h4><p>Reposo de 18 horas, suave y refrescante.</p></div><span class="price">$55</span></div>
+        <div class="menu-item spot"><div><h4>Matcha Latte</h4><p>Matcha ceremonial con leche de coco.</p></div><span class="price">$60</span></div>
       </div>
       <div class="menu-cat" id="toast">
-        <div class="menu-item"><div><h4>Toast de aguacate</h4><p>Pan artesanal, aguacate, jitomate cherry y semillas.</p></div><span class="price">$75</span></div>
-        <div class="menu-item"><div><h4>Avena overnight</h4><p>Avena, leche vegetal, fruta y granola casera.</p></div><span class="price">$65</span></div>
-        <div class="menu-item"><div><h4>Toast de huevo</h4><p>Huevo pochado, aguacate y hierbas frescas.</p></div><span class="price">$80</span></div>
-        <div class="menu-item"><div><h4>Chía pudding</h4><p>Chía, leche de coco, mango y granola.</p></div><span class="price">$70</span></div>
+        <div class="menu-item spot"><div><h4>Toast de aguacate</h4><p>Pan artesanal, aguacate, jitomate cherry y semillas.</p></div><span class="price">$75</span></div>
+        <div class="menu-item spot"><div><h4>Avena overnight</h4><p>Avena, leche vegetal, fruta y granola casera.</p></div><span class="price">$65</span></div>
+        <div class="menu-item spot"><div><h4>Toast de huevo</h4><p>Huevo pochado, aguacate y hierbas frescas.</p></div><span class="price">$80</span></div>
+        <div class="menu-item spot"><div><h4>Chía pudding</h4><p>Chía, leche de coco, mango y granola.</p></div><span class="price">$70</span></div>
       </div>
     </div>
 
@@ -203,7 +325,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;}
 
 <script>
   var header = document.getElementById('siteHeader');
-  function applyHeaderState(){ header.classList.toggle('scrolled', window.scrollY > 20); }
+  function applyHeaderState(){ header.classList.add('scrolled'); }
   window.addEventListener('scroll', applyHeaderState);
   applyHeaderState();
 
@@ -235,6 +357,201 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;}
   } else {
     Array.prototype.forEach.call(document.querySelectorAll('[data-reveal]'), function(el){ el.classList.add('in'); });
   }
+</script>
+
+<script>
+/* React Bits (ports en JS simple): SplitText, CircularText, RotatingText, ScrollVelocity,
+   SpotlightCard, TiltedCard, Magnet, CountUp, ClickSpark, pestañas animadas */
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = window.matchMedia('(pointer: fine)').matches;
+  var $$ = function(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  // Split Text
+  $$('[data-split]').forEach(function(el){
+    var text = el.textContent.trim(), i = 0;
+    el.setAttribute('aria-label', text);
+    el.innerHTML = text.split(/\s+/).map(function(w){
+      return '<span class="st-word" aria-hidden="true">' + w.split('').map(function(c){
+        return '<span class="st-char" style="--i:' + (i++) + '">' + c + '</span>';
+      }).join('') + '</span>';
+    }).join(' ');
+  });
+
+  // Circular Text
+  $$('.circ').forEach(function(c){
+    var svg = c.querySelector('svg'), a = 0, speed = 18, target = 18, last = performance.now();
+    if (reduce) return;
+    c.addEventListener('mouseenter', function(){ target = 90; });
+    c.addEventListener('mouseleave', function(){ target = 18; });
+    (function tick(now){
+      var dt = Math.min((now - last) / 1000, .05); last = now;
+      speed += (target - speed) * .06; a = (a + speed * dt) % 360;
+      svg.style.transform = 'rotate(' + a + 'deg)';
+      requestAnimationFrame(tick);
+    })(last);
+  });
+
+  // Rotating Text
+  $$('.rt').forEach(function(rt){
+    var words = rt.getAttribute('data-words').split('|'), idx = 0;
+    function build(word){
+      var inner = document.createElement('span'); inner.className = 'rt-inner';
+      inner.innerHTML = word.split('').map(function(ch, i){
+        return '<span class="rt-c" style="--i:' + i + '">' + (ch === ' ' ? '&nbsp;' : ch) + '</span>';
+      }).join('');
+      return inner;
+    }
+    function pad(){ var s = getComputedStyle(rt); return parseFloat(s.paddingLeft) + parseFloat(s.paddingRight); }
+    rt.textContent = ''; var cur = build(words[0]); rt.appendChild(cur);
+    rt.setAttribute('aria-live', 'polite');
+    function fit(){ rt.style.width = (cur.getBoundingClientRect().width + pad()) + 'px'; }
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(fit);
+    if (reduce) return;
+    setInterval(function(){
+      idx = (idx + 1) % words.length;
+      cur.classList.add('rt-out');
+      setTimeout(function(){
+        var next = build(words[idx]);
+        rt.replaceChild(next, cur); cur = next; fit();
+      }, 320);
+    }, 2400);
+  });
+
+  // Scroll Velocity
+  var rows = $$('.mq-row');
+  if (rows.length){
+    var sv = 0, lastY = window.scrollY, lastT = performance.now();
+    rows.forEach(function(row){
+      var seq = row.querySelector('.mq-seq');
+      var copies = Math.ceil(window.innerWidth * 2 / Math.max(seq.offsetWidth, 1)) + 1;
+      for (var k = 0; k < copies; k++) row.appendChild(seq.cloneNode(true));
+      row._x = 0; row._w = seq.offsetWidth; row._dir = parseFloat(row.getAttribute('data-dir') || '-1');
+    });
+    window.addEventListener('resize', function(){ rows.forEach(function(r){ r._w = r.querySelector('.mq-seq').offsetWidth; }); });
+    if (!reduce){
+      (function loop(now){
+        var dt = Math.min((now - lastT) / 1000, .05); lastT = now;
+        var y = window.scrollY, v = (y - lastY) / Math.max(dt, .001); lastY = y;
+        sv += (v - sv) * .1;
+        var boost = 1 + Math.min(Math.abs(sv) / 250, 6), flip = sv < -30 ? -1 : 1;
+        rows.forEach(function(r){
+          r._x += r._dir * flip * 50 * boost * dt;
+          if (r._x <= -r._w) r._x += r._w;
+          if (r._x > 0) r._x -= r._w;
+          r.style.transform = 'translate3d(' + r._x + 'px,0,0)';
+        });
+        requestAnimationFrame(loop);
+      })(lastT);
+    }
+  }
+
+  // Spotlight Card
+  $$('.spot').forEach(function(el){
+    el.addEventListener('pointermove', function(e){
+      var r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  // Tilted Card
+  if (fine && !reduce) $$('[data-tilt]').forEach(function(el){
+    el.addEventListener('pointermove', function(e){
+      var r = el.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+      el.style.transition = 'transform .12s ease-out';
+      el.style.transform = 'perspective(900px) rotateX(' + (-py * 10) + 'deg) rotateY(' + (px * 12) + 'deg) scale(1.02)';
+    });
+    el.addEventListener('pointerleave', function(){ el.style.transition = ''; el.style.transform = ''; });
+  });
+
+  // Magnet
+  if (fine && !reduce){
+    var mags = $$('[data-magnet]');
+    window.addEventListener('pointermove', function(e){
+      mags.forEach(function(m){
+        var r = m.getBoundingClientRect(), p = 50;
+        var inside = e.clientX > r.left - p && e.clientX < r.right + p && e.clientY > r.top - p && e.clientY < r.bottom + p;
+        if (inside){
+          var dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+          m.style.transition = 'transform .3s ease-out';
+          m.style.transform = 'translate3d(' + dx / 4 + 'px,' + dy / 4 + 'px,0)';
+        } else if (m.style.transform){
+          m.style.transition = 'transform .6s ease-in-out'; m.style.transform = '';
+        }
+      });
+    });
+  }
+
+  // Count Up
+  var counters = $$('[data-count]');
+  if (counters.length && !reduce && 'IntersectionObserver' in window){
+    counters.forEach(function(c){ c.textContent = (0).toFixed(parseInt(c.getAttribute('data-decimals') || '0', 10)); });
+    var cio = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return; cio.unobserve(en.target);
+        var el = en.target, to = parseFloat(el.getAttribute('data-count')), dec = parseInt(el.getAttribute('data-decimals') || '0', 10), t0 = performance.now();
+        (function step(now){
+          var t = Math.min((now - t0) / 1800, 1), e = 1 - Math.pow(1 - t, 4);
+          el.textContent = (to * e).toFixed(dec);
+          if (t < 1) requestAnimationFrame(step);
+        })(t0);
+      });
+    }, { threshold: .5 });
+    counters.forEach(function(c){ cio.observe(c); });
+  }
+
+  // Pestañas del menú con indicador deslizante + reentrada escalonada
+  var tabsWrap = document.querySelector('.menu-tabs.has-pill');
+  if (tabsWrap){
+    var pill = tabsWrap.querySelector('.tab-pill');
+    var place = function(){
+      var a = tabsWrap.querySelector('.menu-tab.active'); if (!a) return;
+      pill.style.width = a.offsetWidth + 'px'; pill.style.height = a.offsetHeight + 'px';
+      pill.style.transform = 'translate(' + a.offsetLeft + 'px,' + a.offsetTop + 'px)';
+    };
+    place(); window.addEventListener('resize', place);
+    if (document.fonts) document.fonts.ready.then(place);
+    $$('.menu-tab', tabsWrap).forEach(function(t){
+      t.addEventListener('click', function(){
+        place();
+        if (t.scrollIntoView && tabsWrap.scrollWidth > tabsWrap.clientWidth) t.scrollIntoView({ block: 'nearest', inline: 'center', behavior: reduce ? 'auto' : 'smooth' });
+        if (reduce) return;
+        $$('.menu-cat.active .menu-item').forEach(function(it, i){
+          it.style.animation = 'none'; void it.offsetWidth;
+          it.style.animation = 'rbUp .55s cubic-bezier(.2,.8,.2,1) ' + (i * 70) + 'ms both';
+        });
+      });
+    });
+  }
+
+  // Click Spark
+  var cv = document.createElement('canvas'); cv.className = 'spark-canvas'; cv.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(cv);
+  var ctx = cv.getContext('2d'), sparks = [], running = false;
+  function size(){ var d = window.devicePixelRatio || 1; cv.width = innerWidth * d; cv.height = innerHeight * d; ctx.setTransform(d, 0, 0, d, 0, 0); }
+  size(); window.addEventListener('resize', size);
+  function draw(now){
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    sparks = sparks.filter(function(s){
+      var t = (now - s.t) / 450; if (t >= 1) return false;
+      var e = t * (2 - t), dist = e * 26, len = 12 * (1 - e);
+      ctx.strokeStyle = '#FD761A'; ctx.lineWidth = 2; ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(s.x + dist * Math.cos(s.a), s.y + dist * Math.sin(s.a));
+      ctx.lineTo(s.x + (dist + len) * Math.cos(s.a), s.y + (dist + len) * Math.sin(s.a));
+      ctx.stroke();
+      return true;
+    });
+    if (sparks.length) requestAnimationFrame(draw); else running = false;
+  }
+  if (!reduce) document.addEventListener('pointerdown', function(e){
+    var now = performance.now();
+    for (var k = 0; k < 8; k++) sparks.push({ x: e.clientX, y: e.clientY, a: k * Math.PI / 4, t: now });
+    if (!running){ running = true; requestAnimationFrame(draw); }
+  });
+})();
 </script>
 
 </body>
