@@ -139,27 +139,33 @@ header:not(.scrolled) .wordmark-white{display:block;}
 @media(max-width:640px){.pc{--pc-w:62vw;--pc-gap:14px;}}
 
 .visit-section{padding:88px 0;background:var(--cream);}
-/* Parallax Pills (port de React Bits en JS simple) */
-.pp{position:relative;overflow:hidden;background:var(--cobalt-600);border-radius:32px;min-height:560px;display:flex;align-items:center;justify-content:center;padding:64px 24px;color:#fff;}
-.pp::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1px);background-size:22px 22px;-webkit-mask-image:radial-gradient(ellipse at center,transparent 25%,#000 80%);mask-image:radial-gradient(ellipse at center,transparent 25%,#000 80%);}
-.pp-center{position:relative;z-index:2;max-width:440px;text-align:center;display:flex;flex-direction:column;align-items:center;}
-.pp-center .visit-tag{display:inline-flex;align-items:center;gap:6px;border:2px solid #fff;color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:100px;}
-.pp-center h2{margin-top:18px;font-size:clamp(34px,4.6vw,56px);color:#fff;}
-.pp-center p{margin-top:14px;font-size:15.5px;color:rgba(255,255,255,.85);line-height:1.6;}
-.pp-hours{margin-top:22px;font-size:14px;color:rgba(255,255,255,.85);line-height:1.6;}
-.pp-hours b{display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:4px;}
-.pp-center .btn{margin-top:26px;}
-.pp-pill{position:absolute;z-index:1;left:var(--x);top:var(--y);display:inline-flex;align-items:center;gap:8px;white-space:nowrap;padding:12px 22px;border-radius:100px;font-family:'Bricolage Grotesque',var(--font);font-weight:800;font-size:clamp(13px,1.3vw,17px);letter-spacing:-0.01em;box-shadow:0 14px 30px -14px rgba(6,14,58,.6);will-change:transform;user-select:none;cursor:default;transition:box-shadow .3s ease;}
-.pp-pill>span{display:inline-block;transform:rotate(var(--r,0deg));}
-.pp-pill.light{background:#fff;color:var(--cobalt-700);}
-.pp-pill.cream{background:var(--cream);color:var(--ink);}
-.pp-pill.orange{background:var(--orange);color:#fff;}
-.pp-pill.soft{background:var(--cobalt-100);color:var(--cobalt-800);}
-.pp-pill.ghost{background:rgba(255,255,255,.08);color:#fff;border:2px solid rgba(255,255,255,.45);box-shadow:none;backdrop-filter:blur(4px);}
-.pp-pill:hover{box-shadow:0 20px 40px -14px rgba(6,14,58,.75);}
-.pp-pill .dot{width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.7;}
-@media(max-width:760px){.pp{display:block;min-height:auto;padding:40px 18px 48px;text-align:center;}.pp-pill{position:relative;left:auto;top:auto;margin:5px 3px;font-size:12.5px;padding:9px 15px;}.pp-pill.hide-sm{display:none;}.pp-center{margin:26px auto 0;}}
-@media(prefers-reduced-motion:reduce){.pp-pill{transition:none;}}
+/* Tilt Cards (port de unlumen UI en JS simple) */
+.tc-wrap{background:var(--cobalt-600);border-radius:32px;padding:56px 48px;color:#fff;}
+.tc-head{text-align:center;max-width:560px;margin:0 auto 40px;display:flex;flex-direction:column;align-items:center;}
+.tc-head .visit-tag{display:inline-flex;align-items:center;gap:6px;border:2px solid #fff;color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:100px;}
+.tc-head h2{margin-top:18px;font-size:clamp(32px,4.2vw,50px);color:#fff;}
+.tc-head p{margin-top:14px;font-size:15.5px;color:rgba(255,255,255,.85);line-height:1.6;}
+.tc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+.tc{position:relative;display:block;height:232px;border-radius:20px;overflow:hidden;background:var(--cobalt-50);border:1px solid rgba(255,255,255,.6);color:var(--ink);transform-style:preserve-3d;will-change:transform;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease;box-shadow:0 10px 30px -18px rgba(6,14,58,.5);}
+.tc:hover{box-shadow:0 26px 50px -20px rgba(6,14,58,.7);}
+.tc:focus-visible{outline:3px solid #fff;outline-offset:3px;}
+.tc-circle{position:absolute;z-index:0;left:50%;top:92px;width:800px;height:800px;margin-left:-400px;border-radius:50%;background:#fff;transition:transform .5s cubic-bezier(.2,.8,.2,1);}
+.tc:hover .tc-circle{transform:translateY(-14px);}
+.tc-top{position:relative;z-index:2;display:flex;justify-content:space-between;gap:12px;padding:20px 24px;}
+.tc-top h3{font-size:20px;letter-spacing:-0.02em;line-height:1.15;}
+.tc-top p{margin-top:5px;font-size:13.5px;color:var(--graphite);line-height:1.45;max-width:26ch;}
+.tc-badge{display:inline-flex;align-items:center;height:fit-content;flex-shrink:0;white-space:nowrap;font-size:12.5px;font-weight:800;}
+.tc-badge span{padding:5px 10px;}
+.tc-badge .tc-price{background:#fff;color:var(--ink);border-radius:100px 0 0 100px;box-shadow:inset 0 0 0 1px var(--cobalt-100);}
+.tc-badge .tc-price:only-child{border-radius:100px;}
+.tc-badge .tc-label{border-radius:0 100px 100px 0;}
+.tc-label.blue{background:var(--cobalt-600);color:#fff;}
+.tc-label.orange{background:var(--orange);color:#fff;}
+.tc img{position:absolute;z-index:3;top:108px;right:-36px;width:260px;height:190px;object-fit:cover;object-position:center 35%;border-radius:12px;border:1px solid var(--cobalt-100);box-shadow:0 14px 30px -14px rgba(6,14,58,.45);transform:rotate(-5deg);transition:transform .35s cubic-bezier(.2,.8,.2,1);}
+.tc:hover img{transform:rotate(-3deg) translate(-2px,-6px);}
+.tc-link{position:absolute;z-index:2;left:24px;bottom:20px;font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--cobalt-600);}
+@media(max-width:860px){.tc-wrap{padding:40px 18px;border-radius:26px;}.tc-grid{grid-template-columns:1fr;gap:16px;}.tc{height:220px;}.tc img{width:210px;height:160px;top:104px;right:-24px;}}
+@media(prefers-reduced-motion:reduce){.tc,.tc img,.tc-circle{transition:none;}}
 .quicklinks-section{padding:88px 0;background:#F0EEE6;}
 .quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
 .quick-card{background:var(--cream-card);border-radius:24px;padding:28px;box-shadow:var(--shadow-card);transition:transform .25s ease,box-shadow .25s ease;display:block;}
@@ -311,24 +317,37 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;}
 
 <section class="visit-section">
   <div class="wrap">
-    <div class="pp" id="parallaxPills" data-reveal>
-      <span class="pp-pill light" style="--x:6%;--y:12%;--r:-6deg" data-depth="0.9" aria-hidden="true"><span>Açaí bowls</span></span>
-      <span class="pp-pill orange hide-sm" style="--x:30%;--y:7%;--r:4deg" data-depth="0.5" aria-hidden="true"><span>Cold brew</span></span>
-      <span class="pp-pill soft" style="--x:70%;--y:9%;--r:-3deg" data-depth="0.7" aria-hidden="true"><span>Matcha latte</span></span>
-      <span class="pp-pill cream" style="--x:76%;--y:27%;--r:7deg" data-depth="1.1" aria-hidden="true"><span>Pet-friendly 🐾</span></span>
-      <span class="pp-pill ghost hide-sm" style="--x:4%;--y:44%;--r:3deg" data-depth="0.4" aria-hidden="true"><span>Costa Azul</span></span>
-      <span class="pp-pill light hide-sm" style="--x:78%;--y:50%;--r:-5deg" data-depth="0.6" aria-hidden="true"><span>Jugos funcionales</span></span>
-      <span class="pp-pill orange" style="--x:8%;--y:74%;--r:6deg" data-depth="1.0" aria-hidden="true"><span>100% fresco</span></span>
-      <span class="pp-pill soft hide-sm" style="--x:27%;--y:88%;--r:-2deg" data-depth="0.6" aria-hidden="true"><span>Café de especialidad</span></span>
-      <span class="pp-pill ghost hide-sm" style="--x:62%;--y:86%;--r:5deg" data-depth="0.8" aria-hidden="true"><span>Buena vibra</span></span>
-      <span class="pp-pill cream" style="--x:80%;--y:74%;--r:-7deg" data-depth="0.5" aria-hidden="true"><span>Bonfil</span></span>
-      <span class="pp-pill ghost hide-sm" style="--x:42%;--y:3%;--r:-2deg" data-depth="0.3" aria-hidden="true"><span>Toast de aguacate</span></span>
-      <div class="pp-center">
+    <div class="tc-wrap" data-reveal>
+      <div class="tc-head">
         <span class="visit-tag">📍 Visítanos</span>
         <h2>La Barra Saludable</h2>
-        <p>Pasa por bebidas recién preparadas, matchas vibrantes y un espacio pensado para mantenerte en movimiento. Líneas limpias, buena vibra y azulejo blanco.</p>
-        <p class="pp-hours"><b>Horario · Costa Azul</b>Lun–Sáb 7:00 am–8:00 pm · Dom 9:00 am–3:00 pm</p>
-        <a href="bengala-contacto.html" class="btn btn-light">Cómo llegar ↗</a>
+        <p>Bebidas recién preparadas, matchas vibrantes y un espacio pensado para mantenerte en movimiento.<br><b style="color:#fff">Lun–Sáb 7:00 am–8:00 pm · Dom 9:00 am–3:00 pm</b></p>
+      </div>
+      <div class="tc-grid">
+      <a class="tc" href="bengala-menu.html" data-tc>
+        <div class="tc-top"><div><h3>Matcha Latte</h3><p>Matcha ceremonial con leche de coco.</p></div><div class="tc-badge"><span class="tc-price">$60</span></div></div>
+        <img src="img/matcha-latte.jpg" alt="Matcha latte helado de Bengala" width="260" height="190" loading="lazy" decoding="async">
+        <span class="tc-link">Ver en el menú →</span>
+        <span class="tc-circle" aria-hidden="true"></span>
+      </a>
+      <a class="tc" href="bengala-menu.html" data-tc>
+        <div class="tc-top"><div><h3>Café de especialidad</h3><p>Americano, lattes y cold brew de grano de especialidad.</p></div><div class="tc-badge"><span class="tc-price">Desde $40</span></div></div>
+        <img src="img/cafe-especialidad.jpg" alt="Bebida de café helada de Bengala" width="260" height="190" loading="lazy" decoding="async">
+        <span class="tc-link">Ver en el menú →</span>
+        <span class="tc-circle" aria-hidden="true"></span>
+      </a>
+      <a class="tc" href="bengala-menu.html" data-tc>
+        <div class="tc-top"><div><h3>Clásicos fríos</h3><p>Fresco todo el día.</p></div><div class="tc-badge"><span class="tc-price">Bebidas</span><span class="tc-label blue">Frías</span></div></div>
+        <img src="img/clasicos-frios.jpg" alt="Bebida fría de chocolate de Bengala" width="260" height="190" loading="lazy" decoding="async">
+        <span class="tc-link">Ver en el menú →</span>
+        <span class="tc-circle" aria-hidden="true"></span>
+      </a>
+      <a class="tc" href="bengala-contacto.html" data-tc>
+        <div class="tc-top"><div><h3>Visítanos</h3><p>Horacio Nelson 191, Costa Azul, Acapulco.</p></div><div class="tc-badge"><span class="tc-price">7am–8pm</span><span class="tc-label orange">Lun–Sáb</span></div></div>
+        <img src="img/barra-costa-azul.jpg" alt="Barista de Bengala preparando bebidas" width="260" height="190" loading="lazy" decoding="async">
+        <span class="tc-link">Cómo llegar →</span>
+        <span class="tc-circle" aria-hidden="true"></span>
+      </a>
       </div>
     </div>
   </div>
@@ -526,40 +545,19 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;}
 </script>
 
 <script>
-/* Parallax Pills: cada píldora sigue al cursor según su profundidad, con física de resorte (rebote) */
+/* Tilt Cards: inclinación 3D siguiendo al cursor + escala al pasar el mouse */
 (function(){
-  var box = document.getElementById('parallaxPills'); if (!box) return;
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var pills = Array.prototype.map.call(box.querySelectorAll('.pp-pill'), function(el, i){
-    return { el: el, d: parseFloat(el.getAttribute('data-depth')) || .5, x: 0, y: 0, vx: 0, vy: 0, s: 0, vs: 0, ph: i * 1.7 };
-  });
-  if (reduce){ pills.forEach(function(p){ p.el.style.transform = 'none'; }); return; }
-  var mx = 0, my = 0, active = false, shown = false, t0 = performance.now();
-  box.addEventListener('pointermove', function(e){
-    var r = box.getBoundingClientRect();
-    mx = (e.clientX - r.left) / r.width - .5; my = (e.clientY - r.top) / r.height - .5; active = true;
-  });
-  box.addEventListener('pointerleave', function(){ mx = 0; my = 0; active = false; });
-  // Aparecen con un "pop" escalonado cuando la sección entra en pantalla
-  if ('IntersectionObserver' in window){
-    new IntersectionObserver(function(en, obs){ if (en[0].isIntersecting){ shown = true; t0 = performance.now(); obs.disconnect(); } }, { threshold: .25 }).observe(box);
-  } else shown = true;
-  var K = 0.07, D = 0.82; // rigidez y amortiguación del resorte: valores bajos de D = más rebote
-  (function loop(now){
-    var t = (now - t0) / 1000;
-    pills.forEach(function(p, i){
-      var ts = shown && t > i * .07 ? 1 : 0;
-      p.vs = (p.vs + (ts - p.s) * .12) * .72; p.s += p.vs;
-      var drift = active ? 0 : 1; // sin cursor, flotan suavemente
-      var tx = mx * 90 * p.d + Math.sin(now / 1400 + p.ph) * 6 * drift;
-      var ty = my * 70 * p.d + Math.cos(now / 1700 + p.ph) * 6 * drift;
-      p.vx = (p.vx + (tx - p.x) * K) * D; p.vy = (p.vy + (ty - p.y) * K) * D;
-      p.x += p.vx; p.y += p.vy;
-      var tilt = Math.max(-12, Math.min(12, p.vx * 1.5));
-      p.el.style.transform = 'translate3d(' + p.x.toFixed(2) + 'px,' + p.y.toFixed(2) + 'px,0) rotate(' + tilt.toFixed(2) + 'deg) scale(' + Math.max(p.s, 0).toFixed(3) + ')';
+  if (!window.matchMedia('(pointer: fine)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var F = 11; // rotationFactor
+  Array.prototype.forEach.call(document.querySelectorAll('[data-tc]'), function(el){
+    el.addEventListener('pointermove', function(e){
+      var r = el.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+      el.style.transition = 'transform .12s ease-out, box-shadow .4s ease';
+      el.style.transform = 'perspective(1000px) rotateX(' + (-py * F).toFixed(2) + 'deg) rotateY(' + (px * F).toFixed(2) + 'deg) scale(1.04)';
     });
-    requestAnimationFrame(loop);
-  })(t0);
+    el.addEventListener('pointerleave', function(){ el.style.transition = ''; el.style.transform = ''; });
+  });
 })();
 </script>
 </body>
