@@ -107,27 +107,17 @@ header:not(.scrolled) .wordmark-white{display:block;}
 .feature-section{padding:88px 0;background-color:#fff;background-image:linear-gradient(rgba(23,48,201,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(23,48,201,.22) 1px,transparent 1px);background-size:56px 56px;}
 .feature-head{text-align:center;margin-bottom:16px;}
 .feature-head .bolt{display:block;margin:14px auto 0;color:var(--cobalt-600);}
-.f8-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:56px;padding-left:10px;}
-.f8-item{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid #E7E6E1;border-radius:14px;overflow:hidden;box-shadow:-10px -10px 0 var(--cobalt-600);transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease;}
-.f8-item:hover{transform:translate(3px,3px);box-shadow:-14px -14px 0 var(--cobalt-600);}
-.f8-top{position:relative;height:150px;background:var(--cobalt-600);display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.f8-star{position:absolute;color:#fff;opacity:.9;}
-.f8-star.s1{width:22px;height:22px;top:18px;left:22px;}
-.f8-star.s2{width:14px;height:14px;top:34px;right:34px;color:var(--cobalt-300);}
-.f8-star.s3{width:26px;height:26px;bottom:16px;right:26px;opacity:.55;}
-.f8-icon{width:88px;height:88px;border-radius:50%;background:#fff;color:var(--cobalt-600);display:flex;align-items:center;justify-content:center;box-shadow:5px 5px 0 var(--cobalt-900);transition:transform .3s cubic-bezier(.2,.8,.2,1);}
-.f8-icon svg{width:42px;height:42px;stroke-width:1.6;}
-.f8-item:hover .f8-icon{transform:rotate(-8deg) scale(1.06);}
-.f8-body{display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding:26px 26px 24px;flex:1;}
-.f8-item h3{font-size:26px;line-height:1.1;color:var(--ink);}
+.f8-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:56px;}
+.f8-item{display:flex;flex-direction:column;align-items:center;text-align:center;padding:8px 40px;}
+.f8-item+.f8-item{border-left:1px solid rgba(23,48,201,.14);}
+.f8-icon{width:60px;height:60px;border-radius:50%;background:var(--cobalt-50);color:var(--cobalt-600);display:flex;align-items:center;justify-content:center;transition:background .25s ease,color .25s ease,transform .25s ease;}
+.f8-item:hover .f8-icon{background:var(--cobalt-600);color:#fff;transform:translateY(-3px);}
+.f8-item h3{margin-top:24px;font-size:26px;line-height:1.1;color:var(--ink);}
 .f8-item h3 em{font-style:normal;color:var(--cobalt-600);}
-.f8-item p{margin-top:12px;font-size:15px;line-height:1.6;color:var(--graphite);}
-.f8-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;list-style:none;padding:0;}
-.f8-chips li{font-size:12px;font-weight:700;color:var(--cobalt-600);background:var(--cobalt-50);border:1px solid var(--cobalt-100);border-radius:100px;padding:5px 12px;}
-.f8-link{margin-top:auto;padding-top:20px;font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--cobalt-600);}
+.f8-item p{margin-top:14px;max-width:30ch;font-size:15px;line-height:1.65;color:var(--graphite);}
 .f8-more{display:flex;justify-content:center;margin-top:56px;}
-@media(max-width:860px){.f8-grid{grid-template-columns:1fr;gap:34px;max-width:440px;margin-left:auto;margin-right:auto;padding-left:10px;}.f8-item{box-shadow:-8px -8px 0 var(--cobalt-600);}}
-@media(prefers-reduced-motion:reduce){.f8-item,.f8-icon{transition:none;}.f8-item:hover,.f8-item:hover .f8-icon{transform:none;}}
+@media(max-width:860px){.f8-grid{grid-template-columns:1fr;gap:44px;max-width:420px;margin-left:auto;margin-right:auto;}.f8-item{padding:0;}.f8-item+.f8-item{border-left:0;border-top:1px solid rgba(23,48,201,.14);padding-top:44px;}}
+@media(prefers-reduced-motion:reduce){.f8-icon{transition:none;}.f8-item:hover .f8-icon{transform:none;}}
 
 .run-section{padding:88px 0;background:var(--cobalt-600);}
 .run-head{max-width:640px;margin:0 auto 48px;text-align:center;}
@@ -272,33 +262,21 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;}
       <svg class="bolt" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg>
     </div>
     <div class="f8-grid" data-reveal>
-      <a class="f8-item" href="bengala-menu.html">
-        <div class="f8-top"><svg class="f8-star s1" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg><svg class="f8-star s2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg><svg class="f8-star s3" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg><span class="f8-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11h18a9 9 0 0 1-18 0Z"/><path d="M7 11a3 3 0 0 1 5-2.2A3 3 0 0 1 17 11"/><path d="M12 8.8V6c0-1 .6-2 2-2.5"/></svg></span></div>
-        <div class="f8-body">
-          <h3>Bowls <em>que nutren</em></h3>
-          <p>Açaí, fruta fresca y granola casera. Nuestro Bowl Bengala es el boost perfecto antes de moverte.</p>
-          <ul class="f8-chips"><li>Açaí</li><li>Fruta fresca</li><li>Granola casera</li></ul>
-          <span class="f8-link">Ver en el menú →</span>
-        </div>
-      </a>
-      <a class="f8-item" href="bengala-menu.html">
-        <div class="f8-top"><svg class="f8-star s1" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg><svg class="f8-star s2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg><svg class="f8-star s3" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg><span class="f8-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6V9Z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 2.5c0 1.5 1.5 1.5 1.5 3M12 2.5c0 1.5 1.5 1.5 1.5 3"/></svg></span></div>
-        <div class="f8-body">
-          <h3>Café <em>de especialidad</em></h3>
-          <p>Espresso, lattes y matcha preparados al momento. Calientes o fríos, frescos todo el día.</p>
-          <ul class="f8-chips"><li>Espresso</li><li>Lattes</li><li>Matcha</li></ul>
-          <span class="f8-link">Ver en el menú →</span>
-        </div>
-      </a>
-      <a class="f8-item" href="bengala-menu.html">
-        <div class="f8-top"><svg class="f8-star s1" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg><svg class="f8-star s2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg><svg class="f8-star s3" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg><span class="f8-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1.4 13.2a1 1 0 0 1-1 .8H8.4a1 1 0 0 1-1-.8L6 7Z"/><path d="M5 7h14"/><path d="m13 7 2-5 2 .5"/><path d="M7 12h10"/></svg></span></div>
-        <div class="f8-body">
-          <h3>Jugos <em>funcionales</em></h3>
-          <p>Combinaciones naturales con 100% ingredientes frescos, pensadas para tu rutina diaria.</p>
-          <ul class="f8-chips"><li>100% natural</li><li>Funcional</li><li>Fresco</li></ul>
-          <span class="f8-link">Ver en el menú →</span>
-        </div>
-      </a>
+      <div class="f8-item">
+        <span class="f8-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11h18a9 9 0 0 1-18 0Z"/><path d="M7 11a3 3 0 0 1 5-2.2A3 3 0 0 1 17 11"/><path d="M12 8.8V6c0-1 .6-2 2-2.5"/></svg></span>
+        <h3>Bowls <em>que nutren</em></h3>
+        <p>Açaí, fruta fresca y granola casera. Nuestro Bowl Bengala es el boost perfecto antes de moverte.</p>
+      </div>
+      <div class="f8-item">
+        <span class="f8-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6V9Z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 2.5c0 1.5 1.5 1.5 1.5 3M12 2.5c0 1.5 1.5 1.5 1.5 3"/></svg></span>
+        <h3>Café <em>de especialidad</em></h3>
+        <p>Espresso, lattes y matcha preparados al momento. Calientes o fríos, frescos todo el día.</p>
+      </div>
+      <div class="f8-item">
+        <span class="f8-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1.4 13.2a1 1 0 0 1-1 .8H8.4a1 1 0 0 1-1-.8L6 7Z"/><path d="M5 7h14"/><path d="m13 7 2-5 2 .5"/><path d="M7 12h10"/></svg></span>
+        <h3>Jugos <em>funcionales</em></h3>
+        <p>Combinaciones naturales con 100% ingredientes frescos, pensadas para tu rutina diaria.</p>
+      </div>
     </div>
     <div class="f8-more" data-reveal>
       <a href="bengala-menu.html" class="btn btn-primary">Ver menú completo</a>
