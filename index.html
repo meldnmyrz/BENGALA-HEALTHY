@@ -108,30 +108,28 @@ header:not(.scrolled) .wordmark-white{display:block;}
 .feature-section{position:relative;overflow:hidden;}
 .feature-section>.wrap{position:relative;z-index:2;}
 .stk{position:absolute;z-index:1;pointer-events:none;user-select:none;height:auto;filter:drop-shadow(0 5px 0 rgba(23,48,201,.28)) drop-shadow(0 12px 14px rgba(10,21,84,.22));animation:stkfloat 6s ease-in-out infinite;}
-.stk-a{width:142px;left:7%;top:58px;--r:-12deg;}
-.stk-b{width:142px;right:7%;top:44px;--r:10deg;animation-delay:-2s;}
-.stk-c{width:134px;left:4.5%;bottom:56px;--r:9deg;animation-delay:-4s;}
+.stk-c{width:104px;left:4.5%;bottom:56px;--r:9deg;animation-delay:-4s;}
 .stk-d{width:124px;right:5%;bottom:48px;--r:-8deg;animation-delay:-1s;}
 .stk-burst{width:104px;height:104px;left:calc(50% + 150px);top:34px;--r:12deg;display:grid;place-items:center;filter:drop-shadow(0 5px 0 rgba(10,21,84,.25));animation-delay:-3s;}
 .stk-burst svg{position:absolute;inset:0;width:100%;height:100%;}
 .stk-burst b{position:relative;color:#fff;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:13px;line-height:1.05;text-transform:uppercase;text-align:center;letter-spacing:-.01em;}
 @keyframes stkfloat{0%,100%{transform:rotate(var(--r)) translateY(0);}50%{transform:rotate(calc(var(--r) + 3deg)) translateY(-8px);}}
-@media(max-width:1100px){.stk-a,.stk-b{width:92px;}.stk-c,.stk-d{width:88px;}.stk-burst{display:none;}}
-@media(max-width:860px){.stk-a{width:64px;left:12px;top:22px;}.stk-b{width:64px;right:12px;top:18px;}.stk-c{width:62px;left:12px;bottom:34px;}.stk-d{width:58px;right:12px;bottom:30px;}}
+@media(max-width:1100px){.stk-c,.stk-d{width:88px;}.stk-burst{display:none;}}
+@media(max-width:860px){.stk-c{width:62px;left:12px;bottom:34px;}.stk-d{width:58px;right:12px;bottom:30px;}}
 @media(prefers-reduced-motion:reduce){.stk{animation:none;transform:rotate(var(--r));}}
 .feature-head{text-align:center;margin-bottom:16px;}
 .feature-head .bolt{display:block;margin:14px auto 0;color:var(--cobalt-600);}
 .f8-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:56px;}
 .f8-item{display:flex;flex-direction:column;align-items:center;text-align:center;padding:8px 40px;}
 .f8-item+.f8-item{border-left:1px solid rgba(23,48,201,.14);}
-.f8-icon{width:60px;height:60px;border-radius:50%;background:var(--cobalt-50);color:var(--cobalt-600);display:flex;align-items:center;justify-content:center;transition:background .25s ease,color .25s ease,transform .25s ease;}
-.f8-item:hover .f8-icon{background:var(--cobalt-600);color:#fff;transform:translateY(-3px);}
+.f8-stk{height:104px;width:auto;display:block;transform:rotate(var(--r));filter:drop-shadow(0 4px 0 rgba(23,48,201,.28)) drop-shadow(0 9px 10px rgba(10,21,84,.2));transition:transform .3s cubic-bezier(.2,.8,.2,1);}
+.f8-item:hover .f8-stk{transform:rotate(calc(var(--r) * -1)) translateY(-6px) scale(1.06);}
 .f8-item h3{margin-top:24px;font-size:26px;line-height:1.1;color:var(--ink);}
 .f8-item h3 em{font-style:normal;color:var(--cobalt-600);}
 .f8-item p{margin-top:14px;max-width:30ch;font-size:15px;line-height:1.65;color:var(--graphite);}
 .f8-more{display:flex;justify-content:center;margin-top:56px;}
 @media(max-width:860px){.f8-grid{grid-template-columns:1fr;gap:44px;max-width:420px;margin-left:auto;margin-right:auto;}.f8-item{padding:0;}.f8-item+.f8-item{border-left:0;border-top:1px solid rgba(23,48,201,.14);padding-top:44px;}}
-@media(prefers-reduced-motion:reduce){.f8-icon{transition:none;}.f8-item:hover .f8-icon{transform:none;}}
+@media(prefers-reduced-motion:reduce){.f8-stk{transition:none;}.f8-item:hover .f8-stk{transform:rotate(var(--r));}}
 
 .run-section{padding:88px 0;background:var(--cobalt-600);}
 .run-head{max-width:640px;margin:0 auto 48px;text-align:center;}
@@ -270,8 +268,6 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;}
 
 <section class="feature-section">
   <span class="stk stk-burst" aria-hidden="true"><svg viewBox="0 0 100 100"><polygon points="50.0,0.0 57.4,12.7 69.1,3.8 71.1,18.4 85.4,14.6 81.6,28.9 96.2,30.9 87.3,42.6 100.0,50.0 87.3,57.4 96.2,69.1 81.6,71.1 85.4,85.4 71.1,81.6 69.1,96.2 57.4,87.3 50.0,100.0 42.6,87.3 30.9,96.2 28.9,81.6 14.6,85.4 18.4,71.1 3.8,69.1 12.7,57.4 0.0,50.0 12.7,42.6 3.8,30.9 18.4,28.9 14.6,14.6 28.9,18.4 30.9,3.8 42.6,12.7" fill="#1730C9" stroke="#fff" stroke-width="3" stroke-linejoin="round"/></svg><b>It's time<br>to shine</b></span>
-  <img class="stk stk-a" src="img/stk-matcha.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
-  <img class="stk stk-b" src="img/stk-caramel.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
   <img class="stk stk-c" src="img/stk-frappe.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
   <img class="stk stk-d" src="img/stk-gato.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
   <div class="wrap">
@@ -282,17 +278,17 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;}
     </div>
     <div class="f8-grid" data-reveal>
       <div class="f8-item">
-        <span class="f8-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11h18a9 9 0 0 1-18 0Z"/><path d="M7 11a3 3 0 0 1 5-2.2A3 3 0 0 1 17 11"/><path d="M12 8.8V6c0-1 .6-2 2-2.5"/></svg></span>
+        <img class="f8-stk" src="img/stk-bowl.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" style="--r:-8deg">
         <h3>Bowls <em>que nutren</em></h3>
         <p>Açaí, fruta fresca y granola casera. Nuestro Bowl Bengala es el boost perfecto antes de moverte.</p>
       </div>
       <div class="f8-item">
-        <span class="f8-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6V9Z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 2.5c0 1.5 1.5 1.5 1.5 3M12 2.5c0 1.5 1.5 1.5 1.5 3"/></svg></span>
+        <img class="f8-stk" src="img/stk-caramel.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="--r:7deg">
         <h3>Café <em>de especialidad</em></h3>
         <p>Espresso, lattes y matcha preparados al momento. Calientes o fríos, frescos todo el día.</p>
       </div>
       <div class="f8-item">
-        <span class="f8-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1.4 13.2a1 1 0 0 1-1 .8H8.4a1 1 0 0 1-1-.8L6 7Z"/><path d="M5 7h14"/><path d="m13 7 2-5 2 .5"/><path d="M7 12h10"/></svg></span>
+        <img class="f8-stk" src="img/stk-matcha.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="--r:-6deg">
         <h3>Jugos <em>funcionales</em></h3>
         <p>Combinaciones naturales con 100% ingredientes frescos, pensadas para tu rutina diaria.</p>
       </div>
