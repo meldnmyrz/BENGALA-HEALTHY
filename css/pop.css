@@ -180,8 +180,8 @@ h1,h2,h3,h4{font-family:var(--disp);font-weight:800;line-height:.98;letter-spaci
 .hrs b{font-family:var(--disp);font-weight:800;}
 .map{position:relative;margin:20px 26px 0;border:2px solid var(--ink);border-radius:18px;overflow:hidden;height:230px;}
 .map iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(1) sepia(1) hue-rotate(172deg) saturate(2.4) contrast(1.05);}
-.loc .acts{margin:auto 0 0;padding:22px 26px 26px;}
 @media(max-width:900px){.locs{grid-template-columns:1fr;}}
+@media(max-width:540px){.loc .hd{padding:18px 18px 6px;}.hrs{margin:14px 18px 0;}.map{margin:16px 18px 0;height:200px;}.loc .acts{padding:18px;}.btn{padding:13px 22px;font-size:14px;}}
 .cgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:stretch;margin-top:44px;}
 .clist{display:grid;gap:16px;}
 .crow{display:flex;gap:16px;align-items:center;padding:18px 22px;}
